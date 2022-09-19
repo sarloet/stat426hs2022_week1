@@ -1,0 +1,35 @@
+---
+title: "Week 1 Exercise Part B"
+format: html
+author: Yongqi Wang
+editor_options: 
+  chunk_output_type: console
+---
+
+## Generate Negative Binomial Distribution
+
+The library [MASS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/rnegbin.html) can easily generate random outcomes from a Negative Binomial distribution.
+
+To ensure the simulated is consistent, random seed can be called by `set.seed(123)`
+
+```{r eval=FALSE}
+set.seed(123)
+
+library(MASS)
+x <- rnegbin(n = 100, mu = 10, theta = 2)
+```
+
+## Create a histogram
+
+```{r}
+set.seed(123)
+
+library(MASS)
+x <- rnegbin(n = 100, mu = 10, theta = 2)
+hist(x, main = "Histogram (linear)")
+hist(log(x), main = "Histogram (log)")
+```
+
+## Reporting simulated data
+
+The mean from simulation is `r mean(x)` and the variance is `r var(x)`
